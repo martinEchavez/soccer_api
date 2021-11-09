@@ -2,21 +2,27 @@ const knex = require('knex');
 const config = require('../../database/conection');
 const db = knex(config);
 
-let query = db
-  .select('player.id', 'player.name', 'age', 'team_id', 'squad_id', 'position')
-  .from('player');
-
 const getPlayers = async ({ team, position, country }) => {
+  let query = db
+    .select(
+      'player.id',
+      'player.name',
+      'player.age',
+      'player.team_id',
+      'player.squad_id',
+      'player.position'
+    )
+    .from('player');
   if (team) {
-    query
+    return await query
       .innerJoin('team', 'player.team_id', 'team.id')
       .where('team.name', '=', team);
   }
   if (position) {
-    query.where('position', position);
+    return await query.where('position', position);
   }
   if (country) {
-    query
+    return await query
       .innerJoin('team', 'player.team_id', 'team.id')
       .where('team.country', '=', country);
   }
@@ -24,7 +30,7 @@ const getPlayers = async ({ team, position, country }) => {
 };
 
 const getPlayerById = async (id) => {
-  return await query.where('id', '=', id);
+  return await db('player').where('id', '=', id);
 };
 
 const createPlayer = async (player) => {

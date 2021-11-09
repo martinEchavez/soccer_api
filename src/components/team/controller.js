@@ -2,16 +2,15 @@ const knex = require('knex');
 const config = require('../../database/conection');
 const db = knex(config);
 
-let query = db
-  .select('team.id', 'team.name', 'team.league', 'team.country')
-  .from('team');
-
 const getTeams = async () => {
+  let query = db
+    .select('team.id', 'team.name', 'team.league', 'team.country')
+    .from('team');
   return await query;
 };
 
 const getTeamById = async (id) => {
-  return await query.where('id', '=', id);
+  return await db('team').where('id', '=', id);
 };
 
 const createTeam = async (player) => {
