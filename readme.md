@@ -16,6 +16,9 @@
   <ol>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#authentication">Authentication</a></li>
+    <li><a href="#routes">Routes</a></li>
+    <li><a href="#queris">Queris</a></li>
     <li><a href="#license">License</a></li>
   </ol>
 </details>
