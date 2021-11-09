@@ -2,9 +2,28 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const { encryptPassword, comparePassword } = require('../../helpers');
-const { createUser, getUserByUsername } = require('./controller');
+const {
+  getUsers,
+  createUser,
+  getUserByUsername,
+  deleteUser,
+} = require('./controller');
 
 const router = express.Router();
+
+router.get('/', async (req, res) => {
+  try {
+    const users = await getUsers();
+
+    res.status(200).send({
+      users,
+    });
+  } catch (error) {
+    res.status(500).send({
+      error: error.message,
+    });
+  }
+});
 
 router.post('/signup', async (req, res) => {
   try {
@@ -69,6 +88,28 @@ router.post('/signin', async (req, res) => {
     auth: true,
     token,
   });
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const response = await deleteUser(id);
+
+    if (response === 0) {
+      return res.status(404).send({
+        message: 'player not found',
+      });
+    }
+
+    res.status(200).send({
+      message: 'success',
+    });
+  } catch (error) {
+    res.status(500).send({
+      error: error.message,
+    });
+  }
 });
 
 module.exports = router;
