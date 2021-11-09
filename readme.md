@@ -63,9 +63,9 @@
 | username | admin |
 | password | admin |
 
-| `POST` | : `https://test.server/api/auth/signup`
+| `POST` | : `https://graphic-market-soccer-app.herokuapp.com/api/auth/signup`
 
-| `POST` | : `https://test.server/api/auth/signin`
+| `POST` | : `https://graphic-market-soccer-app.herokuapp.com/api/auth/signin`
 
 `Body Json Input`
 
@@ -89,33 +89,19 @@
 
 ### authetication
 
-> | `POST` | : `https://test.server/api/auth/signup`
+> | `POST` | : `https://graphic-market-soccer-app.herokuapp.com/api/auth/signup`
 
-> | `POST` | : `https://test.server/api/auth/signin`
+> | `POST` | : `https://graphic-market-soccer-app.herokuapp.com/api/auth/signin`
 
 ### player
 
-> | `GET` | : `https://test.server/api/player`
+> | `GET` | : `https://graphic-market-soccer-app.herokuapp.com/api/player`
 
-> | `GET` | : `https://test.server/api/player?position=attack`
+> | `GET` | : `https://graphic-market-soccer-app.herokuapp.com/api/player?position=attack`
 
-> | `GET` | : `https://test.server/api/player/2`
+> | `GET` | : `https://graphic-market-soccer-app.herokuapp.com/api/player/2`
 
-> | `POST` | : `https://test.server/api/player`
-
-`Body Json Input`
-
-```json
-{
-  "name": "name",
-  "age": 0,
-  "team_id": 0,
-  "squad_id": 0,
-  "position": "position"
-}
-```
-
-> | `PUT` | : `https://test.server/api/player/2`
+> | `POST` | : `https://graphic-market-soccer-app.herokuapp.com/api/player`
 
 `Body Json Input`
 
@@ -129,27 +115,29 @@
 }
 ```
 
-> | `DELETE` | : `https://test.server/api/player/2`
+> | `PUT` | : `https://graphic-market-soccer-app.herokuapp.com/api/player/2`
+
+`Body Json Input`
+
+```json
+{
+  "name": "name",
+  "age": 0,
+  "team_id": 0,
+  "squad_id": 0,
+  "position": "position"
+}
+```
+
+> | `DELETE` | : `https://graphic-market-soccer-app.herokuapp.com/api/player/2`
 
 ### team
 
-> | `GET` | : `https://test.server/api/team`
+> | `GET` | : `https://graphic-market-soccer-app.herokuapp.com/api/team`
 
-> | `GET` | : `https://test.server/api/team/2`
+> | `GET` | : `https://graphic-market-soccer-app.herokuapp.com/api/team/2`
 
-> | `POST` | : `https://test.server/api/team`
-
-`Body Json Input`
-
-```json
-{
-  "name": "name",
-  "league": "league",
-  "country": "country"
-}
-```
-
-> | `PUT` | : `https://test.server/api/team/2`
+> | `POST` | : `https://graphic-market-soccer-app.herokuapp.com/api/team`
 
 `Body Json Input`
 
@@ -161,7 +149,19 @@
 }
 ```
 
-> | `DELETE` | : `https://test.server/api/team/2`
+> | `PUT` | : `https://graphic-market-soccer-app.herokuapp.com/api/team/2`
+
+`Body Json Input`
+
+```json
+{
+  "name": "name",
+  "league": "league",
+  "country": "country"
+}
+```
+
+> | `DELETE` | : `https://graphic-market-soccer-app.herokuapp.com/api/team/2`
 
 ## Queris
 
