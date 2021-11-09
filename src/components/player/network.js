@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
-    const players = await getPlayers();
+    const players = await getPlayers(req.query);
 
     res.status(200).send({
       players,
