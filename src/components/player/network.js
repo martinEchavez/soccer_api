@@ -1,4 +1,5 @@
 const express = require('express');
+const { authentication } = require('../../middleware/authentication');
 const {
   getPlayers,
   createPlayer,
@@ -9,7 +10,7 @@ const {
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/', authentication, async (req, res) => {
   try {
     const players = await getPlayers(req.query);
 
@@ -23,7 +24,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', authentication, async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -45,7 +46,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', authentication, async (req, res) => {
   try {
     const { name, age, team_id, squad_id, position } = req.body;
     if (
@@ -80,7 +81,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', authentication, async (req, res) => {
   try {
     const { id } = req.params;
     const player = req.body;
@@ -103,7 +104,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authentication, async (req, res) => {
   try {
     const { id } = req.params;
 
