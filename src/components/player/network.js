@@ -1,5 +1,6 @@
 const express = require('express');
 const { authentication } = require('../../middleware/authentication');
+const { cacheInit } = require('../../middleware/cache');
 const {
   getPlayers,
   createPlayer,
@@ -10,7 +11,7 @@ const {
 
 const router = express.Router();
 
-router.get('/', authentication, async (req, res) => {
+router.get('/', authentication, cacheInit, async (req, res) => {
   try {
     const players = await getPlayers(req.query);
 
