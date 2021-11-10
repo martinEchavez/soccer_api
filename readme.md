@@ -14,6 +14,7 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
+    <li><a href="#architecture">Architecture</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#authentication">Authentication</a></li>
@@ -22,6 +23,10 @@
     <li><a href="#license">License</a></li>
   </ol>
 </details>
+
+## Architecture
+
+![The Architecture](/src/docs/architecture.PNG 'Architecture')
 
 ## Installation
 
